@@ -6,6 +6,7 @@ public abstract class ActionHandler {
 
     protected Game game;
 
+    
     public ActionHandler(Game game){
         this.game = game;
     }
