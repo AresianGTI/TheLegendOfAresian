@@ -9,6 +9,7 @@ import java.util.List;
 import action.ActionHandler;
 import action.ErrorHandler;
 import action.ExitHandler;
+import action.TimeHandler;
 
 public class Game {
     
@@ -24,7 +25,7 @@ public class Game {
         this.actionHandler = new ArrayList<>();
         this.endgame = false;
 
-        this.actionHandler.add(new ExitHandler(this));
+        this.loadActionHandlers();
     }
 
 
@@ -62,6 +63,11 @@ public class Game {
 
     public void setEndgame(){
         this.endgame = true;
+    }
+
+    private void loadActionHandlers(){
+        this.actionHandler.add(new ExitHandler(this));
+        this.actionHandler.add(new TimeHandler(this));
     }
 
 }
