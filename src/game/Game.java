@@ -10,12 +10,15 @@ import action.ActionHandler;
 import action.ErrorHandler;
 import action.ExitHandler;
 import action.TimeHandler;
+import world.Location;
+import world.World;
 
 public class Game {
     
     private BufferedReader input;
     private PrintStream output; //If you want to output not only to the console but elsewhere
     private List<ActionHandler> actionHandler;
+    private World world;
     private boolean endgame;
 
     public Game() {
@@ -26,6 +29,8 @@ public class Game {
         this.endgame = false;
 
         this.loadActionHandlers();
+
+        this.world = new World(new Location("Verlorene Wälder", "Du bist am Anfang eines Waldes, hinter dir der Weg, den du herbenutzt hast."));
     }
 
 
@@ -34,6 +39,9 @@ public class Game {
         String command = "";
 
         while(!endgame){
+
+            this.output.println("\n-------------------\n" + this.world.getCurrentSituation());
+
             //Eingabe
             this.output.print("> ");
             command = this.input.readLine(); 
@@ -43,7 +51,7 @@ public class Game {
 
             //Ausgabe
             this.output.println(outputString);
-            this.output.println();
+            // this.output.println();
         }
     }
 
