@@ -10,6 +10,7 @@ import action.ActionHandler;
 import action.ErrorHandler;
 import action.ExitHandler;
 import action.TimeHandler;
+import character.MainCharacter;
 import world.Location;
 import world.World;
 
@@ -20,6 +21,7 @@ public class Game {
     private List<ActionHandler> actionHandler;
     private World world;
     private boolean endgame;
+    private MainCharacter mainCharacter;
 
     public Game() {
         this.input = new BufferedReader(new InputStreamReader(System.in));
@@ -36,6 +38,8 @@ public class Game {
 
     public void run() throws IOException { //Input Output Exception is possible
 
+        this.createCharacter();
+      
         String command = "";
 
         while(!endgame){
@@ -58,7 +62,7 @@ public class Game {
     public String nextRound(String command){
         ActionHandler pointedHandler = null;
         for (ActionHandler handler : this.actionHandler){
-            if(handler.matches(command)){
+            if(handler.commandMatches(command)){
                 pointedHandler = handler;
                 break;
             }
@@ -76,6 +80,15 @@ public class Game {
     private void loadActionHandlers(){
         this.actionHandler.add(new ExitHandler(this));
         this.actionHandler.add(new TimeHandler(this));
+    }
+
+    public void createCharacter() throws IOException{
+        this.output.print("Select a name for your Character: ");
+        String characterName, gender;
+        characterName =  this.input.readLine();
+        this.output.print("Gender of your Character (Type 'male' or 'female'): ");
+        gender = this.input.readLine();
+        mainCharacter = new MainCharacter(characterName, checkChosenGender(gender))
     }
 
 }
