@@ -28,10 +28,10 @@ public class MainCharacter extends Character{
 
     public Gender checkChosenGender(String gender){
         if(gender == "female")
-        return Gender.FEMALE;
+            return Gender.FEMALE;
         else if(gender == "male")
-        return Gender.MALE;
-        else return Gender.LGTBQ;
+            return Gender.MALE;
+        else return Gender.LGBTQ;
     }
 
 

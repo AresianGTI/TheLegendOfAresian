@@ -1,0 +1,24 @@
+Befehl eingeben und dann eine Auswahl erhalten 
+Laufen => verschiedene Wege (a. Treppe 1 b. Treppe 2 c. Kerker Links 
+Item  => Trank , Schlüssel, Kristall, Drachenschlüssel
+Obtains: Exp und Tränke
+
+Deine beste Freundin Mihiro wurde entführt, weil sie einem reichen Hause zugehört und die Verbrecher Loesegeld für ihre Entführung 
+vom Hause Omnazora eine enorme Summe
+
+Bei den Entführern handelt es sich um den Goblinkönig, welcher eine Festung eingebaut in einem Berg besitzt 
+
+Der Eingang ist nicht bewacht...aber es scheint keinen anderen Weg reinzugeben.
+
+Du kommst unten an in einem schlecht beleuchteten Raum. Es kommen Goblins auf dich zu!
+
+
+
+
+
+TODO:
+Locations mit möglichen Türen verschiedene
+Locations mit Investigate Ergebnis
+Schlüsseltüren
+Auswahlmenü mit Gehen, Untersuchen, Items, Aufgeben
+Aufgeben mit Warnmeldung
