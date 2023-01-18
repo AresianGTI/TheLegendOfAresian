@@ -32,7 +32,7 @@ public class Game {
 
         this.loadActionHandlers();
 
-        this.world = new World(new Location("Verlorene Wälder", "Du bist am Anfang eines Waldes, hinter dir der Weg, den du herbenutzt hast."));
+        this.world = new World(new Location("Burgtor", "Das Tor ist nicht bewacht. Aber es scheint keinen anderen Weg reinzugeben."));
     }
 
 
@@ -88,7 +88,7 @@ public class Game {
         characterName =  this.input.readLine();
         this.output.print("Gender of your Character (Type 'male' or 'female'): ");
         gender = this.input.readLine();
-        mainCharacter = new MainCharacter(characterName, checkChosenGender(gender))
+        mainCharacter = new MainCharacter(characterName, gender); 
     }
 
 }

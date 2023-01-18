@@ -3,7 +3,7 @@ package enums;
 public enum Gender {
     MALE("male"),
     FEMALE("female"),
-    LGTBQ("LGTBQ+");
+    LGBTQ("LGBTQ+");
 
     public final String label;
 
