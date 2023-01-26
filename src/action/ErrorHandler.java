@@ -15,7 +15,7 @@ public class ErrorHandler extends ActionHandler {
     }
 
     @Override
-    public boolean matches(String command) {
+    public boolean commandMatches(String command) {
         return true;
     }
     

@@ -12,6 +12,6 @@ public abstract class ActionHandler {
     }
 
     public abstract String handle();
-    public abstract boolean matches(String command);
+    public abstract boolean commandMatches(String command);
     
 }
