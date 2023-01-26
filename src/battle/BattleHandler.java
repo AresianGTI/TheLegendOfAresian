@@ -2,7 +2,6 @@ package battle;
 
 import java.util.Random;
 
-import enums.Gender;
 import game.Game;
 
 public abstract class BattleHandler {

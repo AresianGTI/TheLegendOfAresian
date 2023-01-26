@@ -1,4 +1,5 @@
 package game;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -11,13 +12,12 @@ import action.ErrorHandler;
 import action.ExitHandler;
 import action.TimeHandler;
 import character.MainCharacter;
-import world.Location;
 import world.World;
 
 public class Game {
-    
+
     private BufferedReader input;
-    private PrintStream output; //If you want to output not only to the console but elsewhere
+    private PrintStream output; // If you want to output not only to the console but elsewhere
     private List<ActionHandler> actionHandler;
     private World world;
     private boolean endgame;
@@ -32,63 +32,62 @@ public class Game {
 
         this.loadActionHandlers();
 
-        this.world = new World(new Location("Burgtor", "Das Tor ist nicht bewacht. Aber es scheint keinen anderen Weg reinzugeben."));
+        this.world = new World();
     }
 
-
-    public void run() throws IOException { //Input Output Exception is possible
+    public void run() throws IOException { // Input Output Exception is possible
 
         this.createCharacter();
-      
+
         String command = "";
 
-        while(!endgame){
+        while (!endgame) {
 
             this.output.println("\n-------------------\n" + this.world.getCurrentSituation());
 
-            //Eingabe
+            // Eingabe
             this.output.print("> ");
-            command = this.input.readLine(); 
+            command = this.input.readLine();
 
-            //Verarbeitung
-            String outputString =  this.nextRound(command);
+            // Verarbeitung
+            String outputString = this.nextRound(command);
 
-            //Ausgabe
+            // Ausgabe
             this.output.println(outputString);
             // this.output.println();
         }
     }
 
-    public String nextRound(String command){
+    public String nextRound(String command) {
         ActionHandler pointedHandler = null;
-        for (ActionHandler handler : this.actionHandler){
-            if(handler.commandMatches(command)){
+        for (ActionHandler handler : this.actionHandler) {
+            if (handler.commandMatches(command)) {
                 pointedHandler = handler;
                 break;
             }
         }
-        if(pointedHandler == null)
+        if (pointedHandler == null)
             pointedHandler = new ErrorHandler(this);
 
         return pointedHandler.handle();
     }
 
-    public void setEndgame(){
+    public void setEndgame() {
         this.endgame = true;
     }
 
-    private void loadActionHandlers(){
+    private void loadActionHandlers() {
         this.actionHandler.add(new ExitHandler(this));
         this.actionHandler.add(new TimeHandler(this));
     }
 
-    public void createCharacter() throws IOException{
+    public void createCharacter() throws IOException {
         this.output.print("Select a name for your Character: ");
         String characterName, gender;
-        characterName =  this.input.readLine();
+        characterName = this.input.readLine();
         this.output.print("Gender of your Character (Type 'male' or 'female'): ");
         gender = this.input.readLine();
-        mainCharacter = new MainCharacter(characterName, gender); 
+        mainCharacter = new MainCharacter(characterName, gender);
     }
 
 }
