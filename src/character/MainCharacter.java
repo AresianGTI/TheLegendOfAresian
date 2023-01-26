@@ -15,7 +15,7 @@ public class MainCharacter extends Character{
         this.magicDamage = 2;
     }
 
-    public void getExperience(int gatteredExperience){
+    public void gainExperience(int gatteredExperience){
         this.experience += gatteredExperience;
     }
 
@@ -34,5 +34,12 @@ public class MainCharacter extends Character{
         else return Gender.LGBTQ;
     }
 
+    public int getLevel() {
+        return level;
+    }
+
+    public int getMagicDamage() {
+        return magicDamage;
+    }
 
 }

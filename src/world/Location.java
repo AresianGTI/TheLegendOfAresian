@@ -2,23 +2,28 @@ package world;
 
 import java.util.ArrayList;
 
+import enums.LocationName;
+import items.Item;
+
 public class Location {
 
-    private String name;
+    private final String name;
 
-    private String description;
+    private final String description;
     
     private boolean alreadyVisited;
 
-    private ArrayList<String> possiblePaths =  new ArrayList<String>();
+    private ArrayList<LocationName> possiblePaths =  new ArrayList<LocationName>();
 
 
-    private ArrayList<String> lyingItems = new ArrayList<String>();
+    private ArrayList<Item> lyingItems = new ArrayList<Item>();
 
-    public Location(String name, String description) {
+    public Location(String name, String description, ArrayList<LocationName> paths, ArrayList<Item> items) {
         this.name = name;
         this.description = description;
         this.alreadyVisited = false;
+        this.possiblePaths = paths;
+        this.lyingItems = items;
     }
 
     public String getName() {
@@ -38,14 +43,14 @@ public class Location {
         return alreadyVisited;
     }
 
-    public ArrayList<String> getPossiblePaths() {
+    public ArrayList<LocationName> getPossiblePaths() {
         return possiblePaths;
     }
 
-    public ArrayList<String> getLyingItems() {
+    public ArrayList<Item> getLyingItems() {
         return lyingItems;
     }
 
-    
+       
     
 }
